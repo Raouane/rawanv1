@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+// Remplacer l'import de l'image locale
+const profilePic = "https://i.imgur.com/ASDbaLa.jpeg";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -39,8 +42,13 @@ const Navbar = () => {
     <nav className="bg-black-600 shadow-lg border-b border-yellow/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex">
-            <div className="flex-shrink-0 flex items-center">
+          <div className="flex items-center">
+            <div className="flex-shrink-0 flex items-center space-x-4">
+              <img
+                src={profilePic}
+                alt="Profile"
+                className="h-10 w-10 rounded-full object-cover border-2 border-yellow"
+              />
               <Link to="/" onClick={closeMenu} className="text-yellow text-2xl font-bold">
                 RAOUAN
               </Link>
