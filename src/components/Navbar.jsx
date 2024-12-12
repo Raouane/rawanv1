@@ -1,8 +1,39 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  // Fonction pour fermer le menu
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  // Effet pour fermer le menu lors du changement de route
+  useState(() => {
+    closeMenu();
+  }, [location.pathname]);
+
+  const NavLink = ({ to, children }) => (
+    <Link
+      to={to}
+      onClick={closeMenu}
+      className="text-yellow hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium"
+    >
+      {children}
+    </Link>
+  );
+
+  const MobileNavLink = ({ to, children }) => (
+    <Link
+      to={to}
+      onClick={closeMenu}
+      className="text-yellow hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium"
+    >
+      {children}
+    </Link>
+  );
 
   return (
     <nav className="bg-black-600 shadow-lg border-b border-yellow/10">
@@ -10,34 +41,20 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-yellow text-2xl font-bold">
+              <Link to="/" onClick={closeMenu} className="text-yellow text-2xl font-bold">
                 RAWAN
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link
-                to="/"
-                className="text-yellow hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Accueil
-              </Link>
-              <Link
-                to="/about"
-                className="text-yellow hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                À propos
-              </Link>
-              <Link
-                to="/contact"
-                className="text-yellow hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Contact
-              </Link>
+              <NavLink to="/">Accueil</NavLink>
+              <NavLink to="/about">À propos</NavLink>
+              <NavLink to="/contact">Contact</NavLink>
             </div>
           </div>
           <div className="flex items-center">
             <Link
               to="/login"
+              onClick={closeMenu}
               className="bg-yellow hover:bg-yellow-600 text-black font-medium px-4 py-2 rounded-md text-sm transition-colors duration-200"
             >
               Connexion
@@ -90,24 +107,9 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div className={`${isOpen ? 'block' : 'hidden'} sm:hidden bg-black-700`}>
         <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link
-            to="/"
-            className="text-yellow hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Accueil
-          </Link>
-          <Link
-            to="/about"
-            className="text-yellow hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium"
-          >
-            À propos
-          </Link>
-          <Link
-            to="/contact"
-            className="text-yellow hover:text-yellow-600 block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Contact
-          </Link>
+          <MobileNavLink to="/">Accueil</MobileNavLink>
+          <MobileNavLink to="/about">À propos</MobileNavLink>
+          <MobileNavLink to="/contact">Contact</MobileNavLink>
         </div>
       </div>
     </nav>
