@@ -37,7 +37,7 @@ const Home = () => {
                     Application de réservation développée avec React.js, Node.js et MongoDB. Interface moderne et responsive avec Tailwind CSS.
                   </p>
                   <a
-                    href="https://monhajj2.netlify.app/booking"
+                    href="https://monhajj2.netlify.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-black bg-yellow hover:bg-yellow-600 transition-all duration-300 transform group-hover:scale-105"
@@ -67,7 +67,7 @@ const Home = () => {
                     Système de location de voitures avec gestion des réservations, authentification et tableau de bord administrateur.
                   </p>
                   <a
-                    href="https://github.com/Raouane/rentalcar"
+                    href="https://rentalcaar.netlify.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-black bg-yellow hover:bg-yellow-600 transition-all duration-300 transform group-hover:scale-105"
@@ -97,7 +97,7 @@ const Home = () => {
                     Boutique en ligne de plantes avec panier d'achat, paiement sécurisé et système de recommandations.
                   </p>
                   <a
-                    href="https://github.com/Raouane/plantes"
+                    href="https://plantesenligne.netlify.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-black bg-yellow hover:bg-yellow-600 transition-all duration-300 transform group-hover:scale-105"
