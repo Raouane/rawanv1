@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Appointment = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [timeSlots, setTimeSlots] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,20 +14,26 @@ const Appointment = () => {
     message: ''
   });
 
+  // Générer les créneaux horaires disponibles
+  useEffect(() => {
+    const generateTimeSlots = () => {
+      const slots = [];
+      // Créneaux de 9h à 21h avec intervalle d'une heure
+      for (let hour = 9; hour <= 21; hour++) {
+        const formattedHour = hour.toString().padStart(2, '0');
+        slots.push(`${formattedHour}:00`);
+      }
+      setTimeSlots(slots);
+    };
+
+    generateTimeSlots();
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ici vous pouvez ajouter la logique pour envoyer les données
     console.log('Rendez-vous demandé:', formData);
     setIsOpen(false);
-    setFormData({
-      name: '',
-      email: '',
-      date: '',
-      time: '',
-      subject: '',
-      message: ''
-    });
-    alert('Votre demande de rendez-vous a été envoyée !');
+    navigate('/thank-you', { state: { appointmentData: formData } });
   };
 
   const handleChange = (e) => {
@@ -122,19 +131,22 @@ const Appointment = () => {
                 <label htmlFor="time" className="block text-sm font-medium text-yellow">
                   Heure
                 </label>
-                <div 
-                  className="relative cursor-pointer"
-                  onClick={() => document.getElementById('time').showPicker()}
-                >
-                  <input
-                    type="time"
+                <div className="relative">
+                  <select
                     name="time"
                     id="time"
                     required
                     value={formData.time}
                     onChange={handleChange}
                     className="mt-1 block w-full rounded-md border-gray-600 bg-gray-800 text-yellow-600 shadow-sm focus:border-yellow-500 focus:ring-yellow-500 h-12 px-4 cursor-pointer appearance-none"
-                  />
+                  >
+                    <option value="">Sélectionnez une heure</option>
+                    {timeSlots.map((slot) => (
+                      <option key={slot} value={slot}>
+                        {slot}
+                      </option>
+                    ))}
+                  </select>
                   <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                     <svg className="h-5 w-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
