@@ -42,7 +42,7 @@ const Navbar = () => {
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
               <Link to="/" onClick={closeMenu} className="text-yellow text-2xl font-bold">
-                RAWAN
+                RAOUAN
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -50,15 +50,6 @@ const Navbar = () => {
               <NavLink to="/about">À propos</NavLink>
               <NavLink to="/contact">Contact</NavLink>
             </div>
-          </div>
-          <div className="flex items-center">
-            <Link
-              to="/login"
-              onClick={closeMenu}
-              className="bg-yellow hover:bg-yellow-600 text-black font-medium px-4 py-2 rounded-md text-sm transition-colors duration-200"
-            >
-              Connexion
-            </Link>
           </div>
           
           {/* Mobile menu button */}
