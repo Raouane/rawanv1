@@ -1,9 +1,16 @@
+import { useState } from 'react';
 import meccaBg from '../assets/mecca-bg.jpg';
+import Appointment from '../components/Appointment';
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-black-600">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        {/* Section de rendez-vous en haut */}
+        <div className="text-center mb-12">
+          <Appointment />
+        </div>
+
         <div className="text-center">
           <h1 className="text-4xl font-bold text-yellow sm:text-5xl md:text-6xl">
             RAOUAN
@@ -107,7 +114,45 @@ const Home = () => {
                 </div>
               </div>
             </div>
+
+            {/* Projet 4 - Délice Sucrée */}
+            <div className="pt-6">
+              <div className="relative overflow-hidden rounded-lg shadow-xl h-[400px] group">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: "url('https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=1887&auto=format&fit=crop')"
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black-600/90 to-black-600/40" />
+                
+                <div className="relative h-full flex flex-col justify-end p-6">
+                  <h3 className="text-xl font-bold text-yellow mb-4">
+                    Délice Sucrée - Pâtisserie en Ligne
+                  </h3>
+                  <p className="text-yellow-600 mb-6">
+                    Boutique en ligne de pâtisseries artisanales avec système de commande, panier d'achat et paiement sécurisé.
+                  </p>
+                  <a
+                    href="https://delice-sucree2.netlify.app/cart"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-black bg-yellow hover:bg-yellow-600 transition-all duration-300 transform group-hover:scale-105"
+                  >
+                    Voir le projet
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Section de rendez-vous en bas */}
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mt-12">
+          <h2 className="text-2xl font-bold text-yellow mb-6">Prêt à discuter de votre projet ?</h2>
+          <Appointment />
         </div>
       </div>
     </div>
