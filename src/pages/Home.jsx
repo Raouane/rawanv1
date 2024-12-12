@@ -144,6 +144,33 @@ const Home = () => {
                 </div>
               </div>
             </div>
+
+            {/* Projet 5 - Cabinet d'Avocat */}
+            <div className="pt-6">
+              <div className="bg-[#2A2A2A] rounded-lg shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                {/* Image du projet */}
+                <div className="w-full h-64 overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000&auto=format&fit=crop"
+                    alt="Cabinet d'Avocat Preview" 
+                    className="w-full h-full object-cover transform hover:scale-105 transition-all duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-yellow-500 mb-3">Cabinet d'Avocat</h3>
+                  <p className="text-gray-300 mb-4">Site web professionnel pour un cabinet d'avocat, développé avec React et des technologies modernes.</p>
+                  <a 
+                    href="https://avocatv1.netlify.app/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-block bg-yellow-500 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition-colors duration-300"
+                  >
+                    Voir le site
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
